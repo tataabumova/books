@@ -1,0 +1,32 @@
+.big-book {
+	position: relative;
+
+	&__flag {
+		position: absolute;
+		width: 17px;
+		height: 32px;
+		background-color: #e94d55;
+		top: 408px;
+		left: 34px;
+		z-index: -1;
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: .5px;
+			bottom: 0px;
+			border: 9px solid transparent;
+			border-bottom: 8px solid #ffffff;
+		}
+	}
+
+	&__text {
+		font-size: 18pt;
+		line-height: 34px;
+		margin-top: 3px;
+
+		span {
+			color: @flag-red;
+		}
+	}
+}
