@@ -10,15 +10,22 @@
 
 		a {
 			color: @blue;
-			text-decoration: none;
+			text-decoration: underline;
 			display: inline-block;
-			border-bottom: 1px solid @blue;
+			// border-bottom: 1px solid @blue;
 			height: 21px;
 		}
 	}
 
 	&__without-ribbin {
 		margin-top: 10px;
+	}
+
+	@media @descktop {
+		display: inline-block;
+	    width: 23%;
+	    margin-right: 15px;
+	    vertical-align: top;
 	}
 }
 

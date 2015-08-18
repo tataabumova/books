@@ -2,6 +2,10 @@
 	position: relative;
 	margin-bottom: 63px;
 
+	@media @descktop {
+		margin-bottom: 75px;
+	}
+
 	img {
 		margin-bottom: 11px;
 	}
@@ -46,6 +50,37 @@
 		margin-bottom: 11px;
 		font-family: monaco;
 		padding-top: 21px;
-		margin-bottom: 5px;
+		margin-bottom: 15px;
+
+		@media @descktop {
+			margin-top: 10px;
+			margin-bottom: 4px;
+		}
+	}
+
+}
+
+.wrap-left {
+	
+
+	@media @descktop {
+		float: left;
+		width: 22%;
+		/* width: 284px; */
+		margin-right: 4%;
+		margin-left: 4%;
+	}
+}
+
+.wrap-right {
+	margin-top: -585px;
+
+	@media @descktop {
+		float: right;
+		width: 22%;
+		/* margin-left: -27px; */
+		/* min-width: 207px; */
+		margin-right: 4%;
+		margin-top: 0;
 	}
 }

@@ -5,6 +5,19 @@
 		margin-top: 0;
 	}
 
+	&__wrap {
+		padding-top: 565px;
+
+		@media @tablet {
+			padding-top: 545px;
+		}
+
+		@media @descktop {
+			padding-top: 0;
+			margin-bottom: 30px;
+		}
+	}
+
 	&__title {
 		font-size: 38px;
 		line-height: 1.211;
@@ -18,9 +31,12 @@
 		}
 
 		@media @descktop {
+			margin: 0 auto;
+			max-width: 1200px;
 			font-size: 72px;
 			line-height: 1.167;
 			padding: 0 35px;
+			margin-bottom: 33px;
 		}
 	}
 
@@ -29,6 +45,13 @@
 		color: #4d4d4d;
 		line-height: 34px;
 		margin-bottom: 18px;
+
+		@media @descktop {
+			margin: 0 auto;
+			max-width: 800px;
+			font-size: 32px;
+			line-height: 1.5;
+		}
 	}
 
 	&__mini-title {
