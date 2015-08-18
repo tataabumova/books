@@ -11,9 +11,32 @@
 	}
 
 	&__text {
-		font-size: 15.5pt;
+		font-size: 21px;
 		line-height: 31px;
 		color: @grey-text;
+
+		&--bender {
+
+			max-width: 240px;
+			margin: 0 auto;
+			position: relative;
+
+			&:before {
+				content: "\00AB";
+				position: absolute;
+			    top: -2px;
+			    left: -24px;
+			    font-size: 50px; 
+			}
+
+			&:after {
+				content: "\00BB";
+				position: absolute;
+				bottom: 0px;
+				right: -23px;
+				font-size: 50px;
+			}
+		}
 
 		&--zoidberg {
 			margin-top: -10px;
@@ -22,24 +45,21 @@
 			margin-top: -11px;
 		}
 	}
+.Эта_книга_доказывает_ничтожность_человеческой_м {
+  font-size: 21px;
+  font-family: "Arial";
+  color: rgb(77, 77, 77);
+  line-height: 1.524;
+  text-align: center;
+  position: absolute;
+  left: 29.984px;
+  top: 1269.979px;
+  width: 215px;
+  height: 79px;
+  z-index: 253;
+}
 
-	&__left-quote,
-	&__right-quote {
-		position: absolute;
-		color: @grey-text;
-		font-size: 38pt;
-	}
-
-	&__left-quote {
-		top: 183px;
-		left: -4px;
-	}
-
-	&__right-quote {
-		bottom: -12px;
-		right: -4px;
-	}
-
+	
 	&__like-img {
 		width: 207px;
 		height: 164px;
@@ -73,7 +93,7 @@
 }
 
 .wrap-right {
-	margin-top: -585px;
+	//margin-top: -585px;
 
 	@media @descktop {
 		float: right;
@@ -81,6 +101,6 @@
 		/* margin-left: -27px; */
 		/* min-width: 207px; */
 		margin-right: 4%;
-		margin-top: 0;
+		//margin-top: 0;
 	}
 }

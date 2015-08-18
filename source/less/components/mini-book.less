@@ -18,11 +18,13 @@
 	}
 
 	&__without-ribbin {
-		margin-top: 10px;
+		margin-top: 6px;
+		margin-bottom: 15px;
 	}
 
 	@media @descktop {
 		display: inline-block;
+		min-width: 224px;
 	    width: 23%;
 	    margin-right: 15px;
 	    vertical-align: top;
@@ -30,7 +32,8 @@
 }
 
 .more-books {
-	display: inline-block;
+	display: block;
+	margin: 0 auto;
 	margin-top: -14px;
 	font-size: 17px;
 	color: #4285be;
@@ -43,4 +46,9 @@
 	margin-bottom: 75px;
 	width: 275px;
 	height: 41px;
+
+	@media @descktop {
+		margin-top: 20px;
+	    margin-bottom: 100px;
+	}
 }

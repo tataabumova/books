@@ -2,8 +2,32 @@
 	position: relative;
 	margin-top: 30px;
 
+	@media @descktop {
+		margin-bottom: 50px;
+		margin-top: 33px;
+	}
+
 	img {
-		margin: 17px;
+		padding: 27px 17px 10px 17px;
+		width: 129px;
+		height: 129px;
+		box-sizing: border-box;
+
+	}
+
+	&__img2 {
+		background: url('../img/crown.png') no-repeat;
+		background-position-y: 0px;
+		background-position-x: 12px;
+		background-size: 104px 123px;
+	}
+
+	img:after {
+	    content: '';
+	    width: 123px;
+	    height: 149px;
+	    background: url('../img/crown.png') no-repeat;
+	    display: inline;
 	}
 
 	&__crown {
