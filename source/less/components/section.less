@@ -1,11 +1,27 @@
 .section {
 	margin-top: -14px;
 
+	@media @descktop {
+		margin-top: 0;
+	}
+
 	&__title {
-		font-size: 28.3pt;
-		line-height: 45px;
+		font-size: 38px;
+		line-height: 1.211;
 		margin-bottom: 22px;
 		font-weight: bold;
+
+		@media @tablet {
+			font-size: 65px;
+			line-height: 1.167;
+			padding: 0 35px;
+		}
+
+		@media @descktop {
+			font-size: 72px;
+			line-height: 1.167;
+			padding: 0 35px;
+		}
 	}
 
 	&__text {
