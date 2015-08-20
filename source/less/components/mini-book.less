@@ -45,7 +45,6 @@
 	&__text {
 	    font-size: 19px;
 	    color: #4d4d4d;
-	    margin-top: -3px;
 	    line-height: 24px;
 	    margin-bottom: 50px;
 	    padding: 0 10px;
@@ -76,11 +75,12 @@
 	// 	margin-top: -7px;
 	// }
 
-	@media @descktop {
+	@media @descktop, @tablet {
 		display: inline-block;
 		min-width: 224px;
 	    width: 23%;
 	    margin-right: 15px;
+	    margin-top: 20px;
 	    vertical-align: top;
 	}
 }
@@ -112,7 +112,7 @@
 	}
 
 	@media @descktop {
-		margin-top: 20px;
 	    margin-bottom: 100px;
+	    margin-top: 0;
 	}
 }
