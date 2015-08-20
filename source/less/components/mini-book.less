@@ -1,34 +1,80 @@
 .mini-book {
 
+	&__link {
+		display: block;
+		width: 210px;
+		margin: 0 auto;
+		position: relative;
+		padding-bottom: 30px;
+	}
+
+	&__flag {
+ 		content: "";
+ 		display: block;
+ 		position: absolute;
+ 		width: 14px;
+		height: 23px;
+ 		background-color: @flag-green;
+ 	    top: 300px;
+ 	    left: 25px;
+ 		z-index: -1;
+
+ 		&:after {
+ 			content: "";
+ 			display: block;
+ 			position: absolute;
+ 			left: 0;
+ 			bottom: 0;
+ 			border: 7px solid transparent;
+ 			border-bottom: 8px solid #ffffff;
+ 		}	
+
+ 		&--grey {
+ 			background-color: @flag-grey;
+ 		}
+ 		&--red {
+ 			background-color: @red;
+ 		}
+ 	}
+
+	img  {
+		background-color: rgb(250, 244, 237);
+		box-shadow:  6.528px 6.828px 26px -6px rgba(0, 0, 0, 0.735);
+	}
+
 	&__text {
 	    font-size: 19px;
 	    color: #4d4d4d;
 	    margin-top: -3px;
 	    line-height: 24px;
 	    margin-bottom: 50px;
-	    padding: 0 13px;
+	    padding: 0 10px;
 
 		a {
 			color: @blue;
-			text-decoration: underline;
-			display: inline-block;
+			//text-decoration: underline;
+			//display: inline-block;
 			// border-bottom: 1px solid @blue;
-			height: 21px;
+			//height: 21px;
 
 			&:hover {
+				color: rgb(229, 25, 7);
+			}
+
+			&:active {
 				color: rgb(229, 25, 7);
 			}
 		}
 	}
 
 	&__without-ribbin {
-		margin-top: 6px;
-		margin-bottom: 15px;
+		//margin-bottom: 30px;
+		box-shadow: 2.828px 2.828px 8px 0px rgba(0, 0, 0, 0.435) !important;
 	}
 
-	&__robot {
-		margin-top: -7px;
-	}
+	// &__robot {
+	// 	margin-top: -7px;
+	// }
 
 	@media @descktop {
 		display: inline-block;
@@ -54,6 +100,16 @@
 	margin-bottom: 75px;
 	width: 275px;
 	height: 41px;
+
+	&:hover {
+		color: rgb(229, 25, 7);
+		border-color: rgb(229, 25, 7);
+	}
+
+	&:active {
+		color: rgb(229, 25, 7);
+		border-color: rgb(229, 25, 7);
+	}
 
 	@media @descktop {
 		margin-top: 20px;
