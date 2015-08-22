@@ -2,6 +2,9 @@
 <html lang="ru"> 
 	<head>
 		<meta charset="UTF-8">
+		<script src="js/angular.min.js"></script>
+		<script src="js/Sortable.js"></script>
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Фрай, без штанов и Бендер</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -70,46 +73,48 @@
 
 			<section class="section">
 				<h1 class="section__title">Самое незаметное издательство</h1>
+				
+				<div id="movingBooks" class="section__moving-books">
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img class="mini-book__1" src="img/book1.png" width="" height="" alt=""><div class="mini-book__flag"></div></a>
+						<p class="mini-book__text"><a href="#">Краткая история почти ничего.</a> Эта книга &mdash; недоразумение.</p>
+					</div>
 
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img class="mini-book__1" src="img/book1.png" width="" height="" alt=""><div class="mini-book__flag"></div></a>
-					<p class="mini-book__text"><a href="#">Краткая история почти ничего.</a> Эта книга &mdash; недоразумение.</p>
-				</div>
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img class="mini-book__without-ribbin" src="img/book2.png" width="" height="" alt=""></a>
+						<p class="mini-book__text"><a href="#">Все знания о вселенной</a> компактно упакованы на одной странице.</p>
+					</div>
 
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img class="mini-book__without-ribbin" src="img/book2.png" width="" height="" alt=""></a>
-					<p class="mini-book__text"><a href="#">Все знания о вселенной</a> компактно упакованы на одной странице.</p>
-				</div>
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img src="img/book3.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--grey"></div></a>
+						<p class="mini-book__text">Автор подробно, всего двумя фразами, <a href="#">объясняет все.</a></p>
+					</div>
 
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img src="img/book3.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--grey"></div></a>
-					<p class="mini-book__text">Автор подробно, всего двумя фразами, <a href="#">объясняет все.</a></p>
-				</div>
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img class="mini-book__robot" src="img/book4.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--red"></div></a>
+						<p class="mini-book__text">Двоичные <a href="#">размышления о жизни после пресса.</a></p>
+					</div>
 
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img class="mini-book__robot" src="img/book4.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--red"></div></a>
-					<p class="mini-book__text">Двоичные <a href="#">размышления о жизни после пресса.</a></p>
-				</div>
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img src="img/book5.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--grey"></div></a>
+						<p class="mini-book__text">Прозрачные тексты на мутные темы.</p>
+					</div>
 
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img src="img/book5.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--grey"></div></a>
-					<p class="mini-book__text">Прозрачные тексты на мутные темы.</p>
-				</div>
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img src="img/book6.png" width="" height="" alt=""><div class="mini-book__flag"></div></a>
+						<p class="mini-book__text">О чем спросить первого встречного мутанта с другой планеты. Руководство по умиранию.</p>
+					</div>
 
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img src="img/book6.png" width="" height="" alt=""><div class="mini-book__flag"></div></a>
-					<p class="mini-book__text">О чем спросить первого встречного мутанта с другой планеты. Руководство по умиранию.</p>
-				</div>
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img src="img/book7.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--grey"></div></a>
+						<p class="mini-book__text">Технические чертежи и детали самого лучшего робота на свете.</p>
+					</div>
 
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img src="img/book7.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--grey"></div></a>
-					<p class="mini-book__text">Технические чертежи и детали самого лучшего робота на свете.</p>
-				</div>
-
-				<div class="mini-book">
-					<a href="#" class="mini-book__link"><img src="img/book8.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--red"></div></a>
-					<p class="mini-book__text">Коротко и ясно. Кому не ясно &mdash; Люрр объяснит. Коротко.</p>
-				</div>
+					<div class="mini-book">
+						<a href="#" class="mini-book__link"><img src="img/book8.png" width="" height="" alt=""><div class="mini-book__flag mini-book__flag--red"></div></a>
+						<p class="mini-book__text">Коротко и ясно. Кому не ясно &mdash; Люрр объяснит. Коротко.</p>
+					</div>
+				</div>	
 
 				<a class="more-books" href="#">Еще несколько книг</a>
 			</section>
@@ -167,6 +172,9 @@
 			<img class="footer-img" src="img/logo-footer.png" width="300" height="193" alt="logo">
 		</div>	
 
+
 		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/ang.js"></script>
+
 	</body>
 </html>

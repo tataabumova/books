@@ -54,32 +54,59 @@
 		position: absolute;
 	    width: 85px;
 	    height: 85px;
-	    background-color: @white;
+	    background-color: @black;
 	    top: 210px;
 	    left: 100px;
 	    border: 3px solid @black;
 	    border-radius: 50%;
 
-		// @media @tablet {
-		// 	position: absolute;
-		// 	width: 28%;
-		// 	height: 21%;
-		// 	background-color: @white;
-		// 	top: 49%;
-		// 	left: 32%;
-		// 	border: 4px solid @black;
-		// 	border-radius: 50%;
-		// }
+
+
+		&:after {
+		    	content: "";
+		    	position: absolute;
+				width: 100%;
+			    height: 100%;
+			    top: 0;
+			    left: 0;
+			    background: @white;
+			    -moz-border-radius: 500px / 20px;
+			    -webkit-border-radius: 500px / 20px;
+			    border-top-left-radius: 1000px 1000px;
+			    border-top-right-radius: 1000px 1000px;
+			    border-bottom-right-radius: 1000px 1000px;
+			    border-bottom-left-radius: 1000px 1000px;
+			    z-index: 5;
+			    animation-name: blinking;
+    			animation-duration: 5s;
+    			animation-iteration-count: infinite;
+    			animation-delay: 5s;
+			}
 
 		@media @descktop {
-			position: absolute;
 			width: 28%;
 			height: 21%;
-			background-color: @white;
 			top: 49%;
 			left: 32%;
 			border: 4px solid @black;
-			border-radius: 50%;
+
+			&:after {
+		    	content: "";
+		    	position: absolute;
+				width: 100%;
+			    height: 100%;
+			    top: 0;
+			    left: 0;
+			    background: @white;
+			    border-top-left-radius: 1000px 1000px;
+			    border-top-right-radius: 1000px 1000px;
+			    border-bottom-right-radius: 1000px 1000px;
+			    border-bottom-left-radius: 1000px 1000px;
+			    z-index: 5;
+			    animation-name: blinking;
+    			animation-duration: 5s;
+    			animation-iteration-count: infinite;
+			}
 		}
 	}
 
@@ -92,6 +119,7 @@
 		top: 33px;
 		left: 33px;
 		border-radius: 50%;
+		z-index: 10;
 
 		// @media @tablet {
 		// 	position: absolute;
@@ -126,3 +154,102 @@
 		width: 70%;
 	}
 }
+
+@keyframes blinking {
+	0%  {
+		    height: 100%;
+		    top: 0;
+		    border-top-left-radius: 1000px 1000px;
+		    border-top-right-radius: 1000px 1000px;
+		    border-bottom-right-radius: 1000px 1000px;
+		    border-bottom-left-radius: 1000px 1000px;
+		}
+    80%  {
+		    height: 100%;
+		    top: 0;
+		    border-top-left-radius: 1000px 1000px;
+		    border-top-right-radius: 1000px 1000px;
+		    border-bottom-right-radius: 1000px 1000px;
+		    border-bottom-left-radius: 1000px 1000px;
+		}
+	82%  {
+		    height: 80%;
+		    top: 10%;
+		    border-top-left-radius: 1000px 750px;
+		    border-top-right-radius: 1000px 750px;
+		    border-bottom-right-radius: 1000px 750px;
+		    border-bottom-left-radius: 1000px 750px;
+		}
+	84%  {
+		    height: 58%;
+		    top: 22%;
+		    border-top-left-radius: 2300px 1100px;
+		    border-top-right-radius: 2300px 1100px;
+		    border-bottom-right-radius: 2300px 1100px;
+		    border-bottom-left-radius: 2300px 1100px;
+		}
+	86%  {
+		    height: 21%;
+		    top: 40%;
+		    border-top-left-radius: 3800px 500px;
+		    border-top-right-radius: 3800px 500px;
+		    border-bottom-right-radius: 3800px 500px;
+		    border-bottom-left-radius: 3800px 500px;
+		}
+    88% {
+	    	height: 6%;
+		    top: 48%;
+		    border-top-left-radius: 500px 20px;
+		    border-top-right-radius: 500px 20px;
+		    border-bottom-right-radius: 500px 20px;
+		    border-bottom-left-radius: 500px 20px;
+		}
+	90% {
+	    	height: 0;
+		    top: 50%;
+		    left: 0;
+		}
+	92% {
+	    	height: 6%;
+		    top: 48%;
+		    border-top-left-radius: 500px 20px;
+		    border-top-right-radius: 500px 20px;
+		    border-bottom-right-radius: 500px 20px;
+		    border-bottom-left-radius: 500px 20px;
+		}
+	94%  {
+		    height: 21%;
+		    top: 40%;
+		    border-top-left-radius: 3800px 500px;
+		    border-top-right-radius: 3800px 500px;
+		    border-bottom-right-radius: 3800px 500px;
+		    border-bottom-left-radius: 3800px 500px;
+		}
+	96%  {
+		    height: 58%;
+		    top: 22%;
+		    border-top-left-radius: 2300px 1100px;
+		    border-top-right-radius: 2300px 1100px;
+		    border-bottom-right-radius: 2300px 1100px;
+		    border-bottom-left-radius: 2300px 1100px;
+		}
+	98%  {
+		    height: 80%;
+		    top: 10%;
+		    border-top-left-radius: 1000px 750px;
+		    border-top-right-radius: 1000px 750px;
+		    border-bottom-right-radius: 1000px 750px;
+		    border-bottom-left-radius: 1000px 750px;
+		}
+
+
+	100%  {
+		    height: 100%;
+		    top: 0;
+			border-top-left-radius: 1000px 1000px;
+		    border-top-right-radius: 1000px 1000px;
+		    border-bottom-right-radius: 1000px 1000px;
+		    border-bottom-left-radius: 1000px 1000px;
+		}
+}
+
