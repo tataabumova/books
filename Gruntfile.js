@@ -13,6 +13,7 @@ module.exports = function(grunt) {
             "img/**",
             "js/**",
             "index.html",
+            "books.php",
             "fonts/**",
           ],
           dest: "build"

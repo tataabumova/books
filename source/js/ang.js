@@ -2,6 +2,6 @@ Sortable.create(movingBooks, {
   group: 'shared'
 });
 
-// Sortable.create(bar, {
+// Sortable.create(movingBooks2, {
 //   group: 'shared'
 // });

@@ -3,13 +3,26 @@
 	margin-bottom: 40px;
 
 	&__form {
-		//position: relative;
+		position: relative;
 		display: inline-block;
+
+		@media @mobile {
+			&:after {
+				content: "";
+				top: 6px;
+				right: 36px;
+				width: 30px;
+				height: 66%;
+				background: linear-gradient(to right, transparent, #fff);
+				position: absolute;
+			}
+		}
 	}
 
 	&__input {
 		position: relative;
 	    display: inline-block;
+	    width: 219px;
 	    font-size: 15px;
 	    padding: 6px 15px 6px 30px;
 	    border: 0 none;
@@ -34,20 +47,22 @@
 		position: relative;
 		display: inline-block;
 		top: 7px;
-		left: -16px;
+		left: -3px;
 		// width: 30px;
 		height: 23px;
 		cursor: pointer;
+
+		@media @tablet, @descktop {
+			left: -16px;
+		}
 	}
 
 	@media @tablet {
-		left: -16px;
 		margin-bottom: 0;
 	}
 
 	@media @descktop {
 		float: right;
-		left: -16px;
 		margin-bottom: 0;
 	}
 }
@@ -55,7 +70,7 @@
 	position: relative;
 	color: #9a9a9c;
 	top: 0px;
-    left: -230px;
+    left: -255px;
 
     @media @tablet {
 		left: -273px;

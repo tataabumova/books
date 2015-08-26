@@ -164,17 +164,17 @@
 			handle: null,
 			scroll: true,
 			scrollSensitivity: 30,
-			scrollSpeed: 10,
+			scrollSpeed: 100,
 			draggable: /[uo]l/i.test(el.nodeName) ? 'li' : '>*',
 			ghostClass: 'sortable-ghost',
 			ignore: 'a, img',
 			filter: null,
-			animation: 0,
+			animation: 1000,
 			setData: function (dataTransfer, dragEl) {
 				dataTransfer.setData('Text', dragEl.textContent);
 			},
-			dropBubble: false,
-			dragoverBubble: false,
+			dropBubble: true,
+			dragoverBubble: true,
 			dataIdAttr: 'data-id',
 			delay: 0
 		};
@@ -237,7 +237,6 @@
 				target = (touch || evt).target,
 				originalTarget = target,
 				filter = options.filter;
-
 
 			if (type === 'mousedown' && evt.button !== 0 || options.disabled) {
 				return; // only left button or enabled
@@ -374,6 +373,7 @@
 		},
 
 		_dragStarted: function () {
+			console.log('_dragStarted');
 			if (rootEl && dragEl) {
 				// Apply effect
 				_toggleClass(dragEl, this.options.ghostClass, true);
@@ -386,6 +386,7 @@
 		},
 
 		_emulateDragOver: function () {
+			console.log('_emulateDragOver');
 			if (touchEvt) {
 				_css(ghostEl, 'display', 'none');
 
@@ -440,6 +441,7 @@
 
 
 		_onDragStart: function (/**Event*/evt, /**boolean*/useFallback) {
+			console.log('_onDragStart');
 			var dataTransfer = evt.dataTransfer,
 				options = this.options;
 
@@ -499,7 +501,9 @@
 		},
 
 		_onDragOver: function (/**Event*/evt) {
+			console.log('_onDragOver');
 			var el = this.el,
+				target_elems,
 				target,
 				dragRect,
 				revert,
@@ -513,6 +517,183 @@
 				evt.preventDefault();
 				!options.dragoverBubble && evt.stopPropagation();
 			}
+
+			target = _closest(evt.target, options.draggable, el);
+			if (target != evt.target) {
+				target_elems = document.querySelectorAll('span.sortable-target');
+				for (var i = 0; i < target_elems.length; i++) {
+					target_elems[i].classList.remove('sortable-target');
+				}
+				if (target != null){
+					var target_elem_closest = target.querySelector('.mini-book__separator');
+					target_elem_closest.classList.add('sortable-target');
+				}
+				var elem_with_line = document.querySelector('.sortable-target');
+				if (elem_with_line != null) {
+					function remove_class() {
+						elem_with_line.classList.remove("sortable-target");
+					}
+					setTimeout(remove_class, 500);
+				}
+
+				// setTimeout('elem_with_line.classList.remove("sortable-target")', 6000);			
+			}
+
+			// if (activeGroup && !options.disabled &&
+			// 	(isOwner
+			// 		? canSort || (revert = !rootEl.contains(dragEl)) // Reverting item into the original list
+			// 		: activeGroup.pull && groupPut && (
+			// 			(activeGroup.name === group.name) || // by Name
+			// 			(groupPut.indexOf && ~groupPut.indexOf(activeGroup.name)) // by Array
+			// 		)
+			// 	) &&
+			// 	(evt.rootEl === void 0 || evt.rootEl === this.el) // touch fallback
+			// ) {
+			// 	// Smart auto-scrolling
+			// 	_autoScroll(evt, options, this.el);
+
+			// 	if (_silent) {
+			// 		return;
+			// 	}
+
+			// 	target = _closest(evt.target, options.draggable, el);
+			// 	dragRect = dragEl.getBoundingClientRect();
+
+
+			// 	if (revert) {
+			// 		_cloneHide(true);
+
+			// 		if (cloneEl || nextEl) {
+			// 			rootEl.insertBefore(dragEl, cloneEl || nextEl);
+			// 		}
+			// 		else if (!canSort) {
+			// 			rootEl.appendChild(dragEl);
+			// 		}
+
+			// 		return;
+			// 	}
+
+
+			// 	if ((el.children.length === 0) || (el.children[0] === ghostEl) ||
+			// 		(el === evt.target) && (target = _ghostInBottom(el, evt))
+			// 	) {
+			// 		if (target) {
+			// 			if (target.animated) {
+			// 				return;
+			// 			}
+			// 			targetRect = target.getBoundingClientRect();
+			// 		}
+
+			// 		_cloneHide(isOwner);
+
+			// 		if (_onMove(rootEl, el, dragEl, dragRect, target, targetRect) !== false) {
+			// 			el.appendChild(dragEl);
+			// 			this._animate(dragRect, dragEl);
+			// 			target && this._animate(targetRect, target);
+			// 		}
+			// 	}
+			// 	else if (target && !target.animated && target !== dragEl && (target.parentNode[expando] !== void 0)) {
+			// 		if (lastEl !== target) {
+			// 			lastEl = target;
+			// 			lastCSS = _css(target);
+			// 		}
+
+
+			// 		var targetRect = target.getBoundingClientRect(),
+			// 			width = targetRect.right - targetRect.left,
+			// 			height = targetRect.bottom - targetRect.top,
+			// 			floating = /left|right|inline/.test(lastCSS.cssFloat + lastCSS.display),
+			// 			isWide = (target.offsetWidth > dragEl.offsetWidth),
+			// 			isLong = (target.offsetHeight > dragEl.offsetHeight),
+			// 			halfway = (floating ? (evt.clientX - targetRect.left) / width : (evt.clientY - targetRect.top) / height) > 0.5,
+			// 			nextSibling = target.nextElementSibling,
+			// 			moveVector = _onMove(rootEl, el, dragEl, dragRect, target, targetRect),
+			// 			after
+			// 		;
+
+			// 		if (moveVector !== false) {
+			// 			_silent = true;
+			// 			setTimeout(_unsilent, 30);
+
+			// 			_cloneHide(isOwner);
+
+			// 			if (moveVector === 1 || moveVector === -1) {
+			// 				after = (moveVector === 1);
+			// 			}
+			// 			else if (floating) {
+			// 				after = (target.previousElementSibling === dragEl) && !isWide || halfway && isWide;
+			// 			} else {
+			// 				after = (nextSibling !== dragEl) && !isLong || halfway && isLong;
+			// 			}
+
+			// 			if (after && !nextSibling) {
+			// 				el.appendChild(dragEl);
+			// 			} else {
+			// 				target.parentNode.insertBefore(dragEl, after ? nextSibling : target);
+			// 			}
+
+			// 			this._animate(dragRect, dragEl);
+			// 			this._animate(targetRect, target);
+			// 		}
+			// 	}
+			// }
+		},
+
+		_animate: function (prevRect, target) {
+			console.log('_animate');
+			var ms = this.options.animation;
+
+			if (ms) {
+				var currentRect = target.getBoundingClientRect();
+
+				_css(target, 'transition', 'none');
+				_css(target, 'transform', 'translate3d('
+					+ (prevRect.left - currentRect.left) + 'px,'
+					+ (prevRect.top - currentRect.top) + 'px,0)'
+				);
+
+				target.offsetWidth; // repaint
+
+				_css(target, 'transition', 'all ' + ms + 'ms');
+				_css(target, 'transform', 'translate3d(0,0,0)');
+
+				clearTimeout(target.animated);
+				target.animated = setTimeout(function () {
+					_css(target, 'transition', '');
+					_css(target, 'transform', '');
+					target.animated = false;
+				}, ms);
+			}
+		},
+
+		_offUpEvents: function () {
+			var ownerDocument = this.el.ownerDocument;
+
+			_off(document, 'touchmove', this._onTouchMove);
+			_off(ownerDocument, 'mouseup', this._onDrop);
+			_off(ownerDocument, 'touchend', this._onDrop);
+			_off(ownerDocument, 'touchcancel', this._onDrop);
+		},
+
+		_onDrop: function (/**Event*/evt) {
+			console.log('_onDrop');
+			var el = this.el,
+				options = this.options;
+
+
+
+
+
+			var el = this.el,
+				target,
+				dragRect,
+				revert,
+				options = this.options,
+				group = options.group,
+				groupPut = group.put,
+				isOwner = (activeGroup === group),
+				canSort = options.sort;
+
 
 			if (activeGroup && !options.disabled &&
 				(isOwner
@@ -612,46 +793,22 @@
 					}
 				}
 			}
-		},
 
-		_animate: function (prevRect, target) {
-			var ms = this.options.animation;
 
-			if (ms) {
-				var currentRect = target.getBoundingClientRect();
 
-				_css(target, 'transition', 'none');
-				_css(target, 'transform', 'translate3d('
-					+ (prevRect.left - currentRect.left) + 'px,'
-					+ (prevRect.top - currentRect.top) + 'px,0)'
-				);
 
-				target.offsetWidth; // repaint
 
-				_css(target, 'transition', 'all ' + ms + 'ms');
-				_css(target, 'transform', 'translate3d(0,0,0)');
 
-				clearTimeout(target.animated);
-				target.animated = setTimeout(function () {
-					_css(target, 'transition', '');
-					_css(target, 'transform', '');
-					target.animated = false;
-				}, ms);
-			}
-		},
 
-		_offUpEvents: function () {
-			var ownerDocument = this.el.ownerDocument;
 
-			_off(document, 'touchmove', this._onTouchMove);
-			_off(ownerDocument, 'mouseup', this._onDrop);
-			_off(ownerDocument, 'touchend', this._onDrop);
-			_off(ownerDocument, 'touchcancel', this._onDrop);
-		},
 
-		_onDrop: function (/**Event*/evt) {
-			var el = this.el,
-				options = this.options;
+
+
+
+
+
+
+
 
 			clearInterval(this._loopId);
 			clearInterval(autoScroll.pid);

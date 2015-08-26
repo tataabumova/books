@@ -104,4 +104,32 @@ function eyeWatch(x, y){
 }
 
 
+/**********************adding books***************/
+
+angular.module("myapp", [])
+        .controller("MyController", function($scope, $sce, $http) {
+            $scope.myData = {};
+            var books = angular.element(document.querySelector(".section__moving-books"));
+
+            $scope.myData.books = books.html();
+            $scope.myData.fromServer = $sce.trustAsHtml($scope.myData.books);
+            
+            $scope.myData.doClick = function(item, event) {
+                var responsePromise = $http.get("books.php");
+
+                console.log(responsePromise);
+
+                responsePromise.success(function(data, status, headers, config) {
+                    $scope.myData.books += data;
+                    $scope.myData.fromServer = $sce.trustAsHtml($scope.myData.books);
+                });
+                responsePromise.error(function(data, status, headers, config) {
+                    alert("AJAX failed!");
+                });
+            }
+
+
+        } );
+
+
 

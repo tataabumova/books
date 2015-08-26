@@ -1,5 +1,7 @@
 .mini-book {
 
+	position: relative;
+
 	&__link {
 		display: block;
 		width: 210px;
@@ -46,7 +48,7 @@
 	    font-size: 19px;
 	    color: #4d4d4d;
 	    line-height: 24px;
-	    margin-bottom: 50px;
+	    margin-bottom: 60px;
 	    padding: 0 10px;
 
 		a {
@@ -64,6 +66,10 @@
 				color: rgb(229, 25, 7);
 			}
 		}
+
+		@media @descktop, @tablet {
+			margin-bottom: 50px;
+		}
 	}
 
 	&__without-ribbin {
@@ -75,11 +81,43 @@
 	// 	margin-top: -7px;
 	// }
 
+	&__separator {
+		display: none;
+		position: absolute;
+		width: 2px;
+		height: 100%;
+		top: -20px;
+		left: -13px;
+		background-color: @red;
+
+		&:before {
+		    content: "";
+		    width: 6px;
+		    height: 6px;
+		    background-color: #e94d55;
+		    position: absolute;
+		    top: -5px;
+		    left: -2px;
+		    border-radius: 50%;
+		}
+		&:after {
+		    content: "";
+		    width: 6px;
+		    height: 6px;
+		    background-color: #e94d55;
+		    position: absolute;
+		    bottom: -5px;
+		    left: -2px;
+		    border-radius: 50%;
+		}
+	}
+
 	@media @descktop, @tablet {
 		display: inline-block;
 		min-width: 224px;
 	    width: 23%;
-	    margin-right: 15px;
+	    margin-right: 10px;
+	    margin-left: 10px;
 	    margin-top: 20px;
 	    vertical-align: top;
 	}
@@ -91,7 +129,7 @@
 	margin-top: -14px;
 	font-size: 17px;
 	color: #4285be;
-	line-height: 41px;
+	line-height: 36px;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #96c2e4;
@@ -100,6 +138,8 @@
 	margin-bottom: 75px;
 	width: 275px;
 	height: 41px;
+	outline: none;
+	background-color: white;
 
 	&:hover {
 		color: rgb(229, 25, 7);
@@ -112,7 +152,22 @@
 	}
 
 	@media @descktop {
-	    margin-bottom: 100px;
+	    margin-bottom: 80px;
 	    margin-top: 0;
 	}
+}
+
+.sortable-ghost {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor: -moz-grabbing;
+
+	a {
+		cursor: inherit;
+	}
+}
+
+
+.sortable-target {
+	display: inline-block;
 }
